@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <div class="row text-md-left">
+        <div class="col-lg-8 col-md-6 mb-4 mb-md-0  overflow-auto " style="max-height: 700px;">
+          <!-- <div class="about-img ">
+            <img class="img-fluid center-block" src="assets/home/about-img.png" alt="">
+          </div> -->
+            <div class="row justify-content-center" *ngIf="spinnerLoading">
+                <br><br>
+                <div class="col-md-6 col-lg-6 mb-6 mb-lg-0">
+                    <img src="../assets/spinner.gif" alt="" class="src" style="width: 500px; max-height: 250px; height: 250px;">
+                </div>
+            </div>
+            <h5>* Disclaimer: Packages shown in the result may not be accurate in <span style="color: red;">Beta</span> mode.</h5>
+            <p>The images may not be exact depiction of venues.</p>
+            <br>
+            <div class="row" *ngIf=!spinnerLoading>
+
+                <ng-container *ngFor="let product of products">
+                    <div class="col-md-4 col-lg-4 mb-4 mb-lg-4" style="height: 250px; max-height: 250px;">
+                        <img class="card-img rounded-3 float-left" src={{product.start_city}} alt="">
+                    </div>
+                    <div class="col-md-8 col-lg-8 mb-8 mb-lg-8">
+                            <span style="color: #7676ff; font-weight: bolder; font-size: 25px;">✈ {{product.package_name}} </span>
+                            <span *ngIf="product.package_type=='Deluxe'" class="blink_me" style="color: darkblue; font-weight: bolder;">{{product.package_type}}</span>
+                            <span *ngIf="product.package_type=='Standard'" class="blink_me" style="color: orange; font-weight: bolder;">{{product.package_type}}</span>
+                            <span *ngIf="product.package_type=='Premium'" class="blink_me" style="color: green; font-weight: bolder;">{{product.package_type}}</span> 
+                            <span *ngIf="(product.package_type!='Standard') && (product.package_type!='Premium') && (product.package_type!='Deluxe')" class="blink_me" style="color: black; font-weight: bolder;">{{product.package_type}}</span>
+                            <br>
+                            <strong>🖈 Itinerary:</strong> {{product.itinerary}} <br>
+                            <strong>💸 Price:</strong>&nbsp;<span class="rounded-3 " style="color: purple; font-weight: bolder; background-color: bisque;">  &#x20b9; {{product.price}} /- Only </span> &nbsp; (Group discount available) <br>
+                            <strong>📦 Package Type:</strong> {{product.package_type}} <br>
+                            <strong>🛫 Airline:</strong> {{product.airline}} <br>
+                            <strong>😋 Meals:</strong> {{product.meals}} <br>
+                            <strong>📔 Covered:</strong> {{product.places_covered}} <br>
+                            <strong>🔍 Places</strong>: {{(product.sight_seeing_places_covered.length>120)?
+                            (product.sight_seeing_places_covered |
+                            slice:0:120)+'...':(product.sight_seeing_places_covered) }}
+                            <br>
+
+
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0 ">
+
+            <div class="container ">
+
+                <!-- Content wrapper start -->
+                <div class="content-wrapper">
+
+                    <!-- Row start -->
+                    <div class="row gutters">
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                            <div class="card m-0">
+
+                                <!-- Row start -->
+                                <div class="row no-gutters">
+                                    <div>
+                                        <div class="selected-user">
+                                            <img class="section-intro-img" src="assets/home/section-icon.png" alt="">
+
+                                            <span><span class="name"> AI ChatBot</span> powerd by AzureOpenAI</span>
+                                        </div>
+                                        <div class="chat-container">
+                                            <div #scrollMe class="overflow-auto"
+                                                style="height:500px; max-height: 500px;">
+                                                <ul *ngFor="let chat of chats" class="chat-box">
+
+                                                    <li *ngIf="chat.type=='chat-left'" class="chat-left">
+                                                        <div class="chat-avatar">
+                                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                                                                alt="Retail Admin">
+                                                            <div class="chat-name">{{chat.name}}</div>
+                                                        </div>
+                                                        <div class="chat-text">{{chat.text}}</div>
+                                                    </li>
+                                                    <li *ngIf="chat.type=='chat-right'" class="chat-right">
+                                                        <div class="chat-text">{{chat.text}}</div>
+                                                        <div class="chat-avatar">
+                                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png"
+                                                                alt="Retail Admin">
+                                                            <div class="chat-name">{{chat.name}}</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="form-group mt-1 mb-0">
+                                                <textarea #chatarea class="form-control" style="float: left;" rows="2"
+                                                    placeholder="Type your message here..."></textarea>
+                                                <button id="ask" type="button" (click)='askBot(chatarea.value)'
+                                                    class="btn btn-primary mt-2"><strong>🤖 Ask Safario</strong> (Beta)</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- Row end -->
+
+                </div>
+                <!-- Content wrapper end -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
