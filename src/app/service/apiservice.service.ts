@@ -8,7 +8,7 @@ import { Packages } from '../chat/PackageModel';
 })
 export class ApiserviceService {
 
-  apiUrl = 'http://localhost:4242';
+  apiUrl = 'https://dgkyd3u3sv45lg2-api.graycoast-4c16b4a2.eastus.azurecontainerapps.io';
 
   constructor(private http: HttpClient) { }
 

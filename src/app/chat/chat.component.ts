@@ -1,6 +1,7 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { ApiserviceService } from '../service/apiservice.service';
 import { PackageModel, Packages } from './PackageModel';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-chat',
@@ -74,7 +75,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   @ViewChild('chatarea')
   private chatarea!: ElementRef;
   constructor(private apiService: ApiserviceService) {
-    this.session_id = crypto.randomUUID();
+    this.session_id = uuidv4();
   }
 
 
