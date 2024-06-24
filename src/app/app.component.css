@@ -823,7 +823,7 @@
     }
     
     .hero-banner-sm {
-      background: url(../assets/banner/banner.png) left center no-repeat;
+      background: url(../assets/banner.png) left center no-repeat;
     
       background-size: cover;
       padding-top: 140px;

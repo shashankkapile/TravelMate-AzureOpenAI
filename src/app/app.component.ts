@@ -19,6 +19,10 @@ export class AppComponent {
   }
 
   scrollToAbout(){
-    this.aboutElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    this.aboutElement.nativeElement.scrollIntoView({ 
+      behavior: 'smooth' ,
+        block: 'start',
+        inline: 'nearest'
+    });
   }
 }

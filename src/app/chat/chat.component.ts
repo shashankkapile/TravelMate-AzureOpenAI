@@ -173,13 +173,13 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       .getResponse(payload)
       .subscribe(
         (data : Packages )=> {
-          this.addBotRespose("Here you go!");
+          this.addBotRespose("Here you go!!");
           this.products=data.message
           this.generateImage();
           this.spinnerLoading = false;
         },
         error => {
-          this.addBotRespose("Sorry, I could not find what you need. Meanwhile, are some highest rated packages we offer!");
+          this.addBotRespose("Sorry, I could not find what you need. Meanwhile, here are some trips you be interested in!");
           this.generateImage();
           this.spinnerLoading = false;
         }
