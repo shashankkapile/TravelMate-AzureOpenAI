@@ -179,7 +179,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
           this.spinnerLoading = false;
         },
         error => {
-          this.addBotRespose("Sorry, I could not find what you need. Meanwhile, here are some trips you be interested in!");
+          this.addBotRespose("Sorry, I could not find what you need. Meanwhile, here are some trips you might be interested in!");
           this.generateImage();
           this.spinnerLoading = false;
         }
